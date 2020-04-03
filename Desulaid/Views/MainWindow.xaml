@@ -72,6 +72,7 @@
                         <TextBlock Margin="10" FontSize="14" Grid.Row="2" Grid.Column="0" Text="Дата занятий"/>
                         <TextBlock Margin="10" FontSize="14" Grid.Row="3" Grid.Column="0" Text="Описание"/>
                         <ComboBox x:Name="studentNameBox" Margin="10" FontSize="14" Grid.Row="0" Grid.Column="1"
+                                  MouseEnter="studentNameBox_MouseEnter"
                                   materialDesign:HintAssist.Hint="Выберите студента из списка"/>
                         <TextBox x:Name="studentTimeBox" Margin="10" FontSize="14" Grid.Row="1" Grid.Column="1" 
                                  Height="30"

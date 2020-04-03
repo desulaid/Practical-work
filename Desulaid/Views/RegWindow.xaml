@@ -22,7 +22,6 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBox x:Name="loginBox"
                  materialDesign:HintAssist.Hint="Логин" 
@@ -32,7 +31,7 @@
                      materialDesign:HintAssist.Hint="Пароль" 
                      Grid.Row="1" Grid.ColumnSpan="2"
                      Margin="10" Height="30" />
-        <PasswordBox x:Name="loginBoxCheck" 
+        <PasswordBox x:Name="passwordBoxCheck" 
                      materialDesign:HintAssist.Hint="Подтвердите пароль" 
                      Grid.Row="2" Grid.ColumnSpan="2"
                      Margin="10" Height="30" />
@@ -48,18 +47,14 @@
                  materialDesign:HintAssist.Hint="Отество" 
                  Grid.Row="5" Grid.ColumnSpan="2"
                  Margin="10" Height="30" />
-        <TextBox x:Name="birdayBox"
-                 materialDesign:HintAssist.Hint="Дата рождения" 
-                 Grid.Row="6" Grid.ColumnSpan="2"
-                 Margin="10" Height="30" />
         <TextBox x:Name="groupBox"
                  materialDesign:HintAssist.Hint="Группа" 
-                 Grid.Row="7" Grid.ColumnSpan="2"
+                 Grid.Row="6" Grid.ColumnSpan="2"
                  Margin="10" Height="30" />
         <Button Content="Завершить" Height="35" Width="150"
-                Grid.Row="8" Grid.Column="2" IsDefault="True"/>
+                Grid.Row="7" Grid.Column="2" IsDefault="True" Click="CreateAccount_Click"/>
         <Button Content="Отмена" Height="35" Width="150"
                 Style="{StaticResource MaterialDesignRaisedLightButton}"
-                Grid.Row="8" Grid.Column="0" IsCancel="True"/>
+                Grid.Row="7" Grid.Column="0" IsCancel="True"/>
     </Grid>
 </Window>

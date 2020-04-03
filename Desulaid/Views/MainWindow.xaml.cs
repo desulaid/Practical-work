@@ -11,17 +11,6 @@
         public MainWindow()
         {
             InitializeComponent();
-
-            using (var db = new DBContext())
-            {
-                var students = db.Account
-                    .Where(x => x.GroupId == "п-41");
-
-                foreach (var i in students)
-                {
-                    studentNameBox.Items.Add($"{i.LastName} {i.FirstName}");
-                }
-            }
         }
 
         private void Ligin_Click(object sender, RoutedEventArgs e)
@@ -75,6 +64,22 @@
         private void SaveListToDb_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void studentNameBox_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            using (var db = new DBContext())
+            {
+                var students = db.Account
+                    .Where(x => x.GroupId == "п-41");
+
+                studentNameBox.Items.Clear();
+
+                foreach (var i in students)
+                {
+                    studentNameBox.Items.Add($"{i.LastName} {i.FirstName}");
+                }
+            }
         }
     }
 }
