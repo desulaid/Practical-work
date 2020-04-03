@@ -1,0 +1,96 @@
+﻿<Window x:Class="Desulaid.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desulaid.Models"
+        mc:Ignorable="d"
+        Background="{DynamicResource MaterialDesignLightBackground}"
+        Height="450" Width="800">
+    <Grid>
+        <Grid Height="60" VerticalAlignment="Top" Background="{StaticResource PrimaryHueMidBrush}">
+            <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       FontSize="22" FontFamily="Champagne &amp; Limousines">
+                Дневник посещяемости занятий
+            </TextBlock>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
+                    Margin="10" Click="Ligin_Click">
+                <materialDesign:PackIcon Kind="Login"/>
+            </Button>
+        </Grid>
+        <Grid Margin="0 60 0 0">
+            <dragablz:TabablzControl BorderThickness="0">
+                <dragablz:TabablzControl.DataContext>
+                    <local:StudentModel/>
+                </dragablz:TabablzControl.DataContext>
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <TabItem Header="СТУДЕНТЫ">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <ListView Grid.IsSharedSizeScope="True" Margin="10" Grid.Row="0"
+                                  Name="studentList"
+                                  FontSize="14">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="300">Студент</GridViewColumn>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Time}">Время</GridViewColumn>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Date}">Дата</GridViewColumn>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Description}">Описание</GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button Margin="10" FontSize="14" Grid.Row="1"
+                                Click="SaveListToDb_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Width="150"
+                                Content="Сохранить"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="ДОБАВИТЬ СТУДЕНТА">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="10" FontSize="14" Grid.Row="0" Grid.Column="0" Text="Студент"/>
+                        <TextBlock Margin="10" FontSize="14" Grid.Row="1" Grid.Column="0" Text="Время занятия"/>
+                        <TextBlock Margin="10" FontSize="14" Grid.Row="2" Grid.Column="0" Text="Дата занятий"/>
+                        <TextBlock Margin="10" FontSize="14" Grid.Row="3" Grid.Column="0" Text="Описание"/>
+                        <ComboBox x:Name="studentNameBox" Margin="10" FontSize="14" Grid.Row="0" Grid.Column="1"
+                                  materialDesign:HintAssist.Hint="Выберите студента из списка"/>
+                        <TextBox x:Name="studentTimeBox" Margin="10" FontSize="14" Grid.Row="1" Grid.Column="1" 
+                                 Height="30"
+                                 materialDesign:HintAssist.Hint="Обязательное поле для ввода"/>
+                        <TextBox x:Name="studentDateBox" Margin="10" FontSize="14" Grid.Row="2" Grid.Column="1" 
+                                 Height="30"
+                                 materialDesign:HintAssist.Hint="Обязательное поле для ввода"/>
+                        <TextBox x:Name="studentDiscriptionBox" Margin="10" FontSize="14" Grid.Row="3" Grid.Column="1" 
+                                 Height="30"
+                                 materialDesign:HintAssist.Hint="Обязательное поле для ввода"/>
+                        <Button Margin="10" FontSize="14" Grid.Row="4" Grid.Column="1"
+                                Click="AddStudentToList_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Width="150"
+                                Content="Добавить"/>
+                    </Grid>
+                </TabItem>
+            </dragablz:TabablzControl>
+        </Grid>
+    </Grid>
+</Window>
