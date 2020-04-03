@@ -13,7 +13,7 @@
             InitializeComponent();
         }
 
-        private void Ligin_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
             using (var db = new DBContext())
             {

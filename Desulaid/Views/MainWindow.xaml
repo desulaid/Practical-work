@@ -16,7 +16,7 @@
                 Дневник посещяемости занятий
             </TextBlock>
             <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
-                    Margin="10" Click="Ligin_Click">
+                    Margin="10" Click="Login_Click">
                 <materialDesign:PackIcon Kind="Login"/>
             </Button>
         </Grid>
