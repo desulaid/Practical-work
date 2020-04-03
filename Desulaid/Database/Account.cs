@@ -27,9 +27,6 @@ namespace Desulaid.Database
         public string LastName { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? Birthday { get; set; }
-
-        [Column(TypeName = "date")]
         public DateTime? Registration { get; set; }
 
         [StringLength(50)]

@@ -49,6 +49,14 @@ namespace Desulaid.Database
             modelBuilder.Entity<Attendance>()
                 .Property(e => e.Reason)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Attendance>()
+                .Property(e => e.Date)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Attendance>()
+                .Property(e => e.Time)
+                .IsUnicode(false);
         }
     }
 }

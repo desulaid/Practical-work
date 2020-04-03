@@ -13,7 +13,13 @@ namespace Desulaid.Database
 
         public int? StudentId { get; set; }
 
-        [StringLength(5)]
+        [StringLength(50)]
         public string Reason { get; set; }
+
+        [StringLength(50)]
+        public string Date { get; set; }
+
+        [StringLength(50)]
+        public string Time { get; set; }
     }
 }

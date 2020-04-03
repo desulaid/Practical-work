@@ -75,6 +75,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Database\Account.cs" />
+    <Compile Include="Database\Attendance.cs" />
+    <Compile Include="Database\DBContext.cs" />
+    <Compile Include="Database\sysdiagrams.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Views\RegWindow.xaml.cs">
       <DependentUpon>RegWindow.xaml</DependentUpon>
@@ -91,10 +95,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Database\Account.cs" />
-    <Compile Include="Database\Attendance.cs" />
-    <Compile Include="Database\DBContext.cs" />
-    <Compile Include="Database\sysdiagrams.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>

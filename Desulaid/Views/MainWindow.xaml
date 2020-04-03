@@ -28,13 +28,49 @@
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController/>
                 </dragablz:TabablzControl.InterTabController>
-                <TabItem Header="СТУДЕНТЫ">
-                    <Grid>
+                <TabItem>
+                    <TabItem.Header>
+                        <materialDesign:PackIcon Kind="Settings" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                    </TabItem.Header>
+                    <Grid Margin="10,10,10,0">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Margin="10" FontSize="14" TextWrapping="WrapWithOverflow" VerticalAlignment="Center">
+                            Выберите один из способов поиска студента или группы студентов, чтобы просмотреть информацию по его посещаемости занятий.
+                        </TextBlock>
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Orientation="Horizontal"
+                                    materialDesign:HintAssist.Hint="Выберите вариант поиска" >
+                            <ComboBox FontSize="14" Margin="10" Height="30" Width="300"
+                                      x:Name="searchTypeBox">
+                                <ComboBoxItem Content="Отобразить все за определенную дату"/>
+                            </ComboBox>
+                            <TextBox materialDesign:HintAssist.Hint="Введите что-нибудь" 
+                                     x:Name="searchItemBox"
+                                     FontSize="14"
+                                     Margin="10" Height="30" Width="300"/>
+                        </StackPanel>
+                        <Button Margin="10" FontSize="14" Grid.Row="3"
+                                Click="Search_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Width="150"
+                                Content="Применить"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="СТУДЕНТЫ">
+                    <Grid Margin="10,10,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="65"/>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <ListView Grid.IsSharedSizeScope="True" Margin="10" Grid.Row="0"
+                        <TextBlock Grid.Row="0" Margin="10" FontSize="14" TextWrapping="WrapWithOverflow" VerticalAlignment="Center">
+                            Здесь отображены студенты, список которых вы сформировали. Далее, здесь будут <Run FontWeight="Bold" >добавленные</Run> вами новые студенты.
+                        </TextBlock>
+                        <ListView Grid.IsSharedSizeScope="True" Grid.Row="1"
                                   Name="studentList"
                                   FontSize="14">
                             <ListView.View>
@@ -42,11 +78,11 @@
                                     <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="300">Студент</GridViewColumn>
                                     <GridViewColumn DisplayMemberBinding="{Binding Time}">Время</GridViewColumn>
                                     <GridViewColumn DisplayMemberBinding="{Binding Date}">Дата</GridViewColumn>
-                                    <GridViewColumn DisplayMemberBinding="{Binding Description}">Описание</GridViewColumn>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Width="500">Описание</GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Button Margin="10" FontSize="14" Grid.Row="1"
+                        <Button Margin="10" FontSize="14" Grid.Row="2"
                                 x:Name="SaveListToDb"
                                 Click="SaveListToDb_Click"
                                 HorizontalAlignment="Right"
@@ -56,7 +92,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="ДОБАВИТЬ СТУДЕНТА">
-                    <Grid>
+                    <Grid Margin="10,10,10,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
