@@ -2,6 +2,7 @@
 {
     using Desulaid.Database;
     using System;
+    using System.Linq;
     using System.Windows;
 
     public partial class RegWindow : Window
@@ -35,7 +36,17 @@
             using (var db = new DBContext())
             {
                 var account = db.Account
-                    .Add(new Account
+                    .Where(x => x.Login == loginBox.Text)
+                    .FirstOrDefault();
+
+                if (account != null)
+                {
+                    MessageBox.Show("Аккаунт с этим логином уже зарегистрирован", "Ошибка",
+                                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                db.Account.Add(new Account
                     {
                         Login = loginBox.Text,
                         Password = passwordBoxCheck.Password,
