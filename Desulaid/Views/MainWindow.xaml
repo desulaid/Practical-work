@@ -15,7 +15,7 @@
                        FontSize="22" FontFamily="Champagne &amp; Limousines">
                 Дневник посещяемости занятий
             </TextBlock>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
+            <Button x:Name="loginButton" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
                     Margin="10" Click="Login_Click">
                 <materialDesign:PackIcon Kind="Login"/>
             </Button>
@@ -47,6 +47,7 @@
                             </ListView.View>
                         </ListView>
                         <Button Margin="10" FontSize="14" Grid.Row="1"
+                                x:Name="SaveListToDb"
                                 Click="SaveListToDb_Click"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
@@ -80,10 +81,15 @@
                         <TextBox x:Name="studentDateBox" Margin="10" FontSize="14" Grid.Row="2" Grid.Column="1" 
                                  Height="30"
                                  materialDesign:HintAssist.Hint="Обязательное поле для ввода"/>
-                        <TextBox x:Name="studentDiscriptionBox" Margin="10" FontSize="14" Grid.Row="3" Grid.Column="1" 
+                        <ComboBox x:Name="studentDiscriptionBox" Margin="10" FontSize="14" Grid.Row="3" Grid.Column="1" 
                                  Height="30"
-                                 materialDesign:HintAssist.Hint="Обязательное поле для ввода"/>
+                                 materialDesign:HintAssist.Hint="Выберите причину из списка">
+                            <ComboBoxItem Content="Отсутствовал"/>
+                            <ComboBoxItem Content="Отсутствовал (уважительная причина)"/>
+                            <ComboBoxItem Content="Присутствовал"/>
+                        </ComboBox>
                         <Button Margin="10" FontSize="14" Grid.Row="4" Grid.Column="1"
+                                x:Name="AddStudentToList"
                                 Click="AddStudentToList_Click"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
